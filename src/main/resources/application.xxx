@@ -1,0 +1,34 @@
+# Placeholders batch.*
+#    for Postgres:
+batch.jdbc.driver=org.postgresql.Driver
+batch.jdbc.url=jdbc:postgresql://localhost/cloud_native_batch
+batch.jdbc.user=i21
+batch.jdbc.password=dba
+batch.jdbc.testWhileIdle=false
+batch.jdbc.validationQuery=
+batch.jdbc.verifyCursorPosition=false
+batch.drop.script=classpath:/org/springframework/batch/core/schema-drop-postgresql.sql
+batch.schema.script=classpath:/org/springframework/batch/core/schema-postgresql.sql
+batch.business.schema.script=business-schema-postgresql.sql
+batch.data.source.init=true
+batch.database.incrementer.class=org.springframework.jdbc.support.incrementer.PostgreSQLSequenceMaxValueIncrementer
+batch.database.incrementer.parent=sequenceIncrementerParent
+batch.lob.handler.class=org.springframework.jdbc.support.lob.DefaultLobHandler
+batch.grid.size=2
+batch.jdbc.pool.size=6
+batch.verify.cursor.position=false
+batch.isolationlevel=ISOLATION_SERIALIZABLE
+batch.table.prefix=BATCH_
+#spring.jdbc.driver=org.postgresql.Driver
+#spring.jdbc.url=jdbc:postgresql://localhost/cloud_native_batch
+#spring.jdbc.user=i21
+#spring.jdbc.password=dba
+#spring.jdbc.testWhileIdle=false
+#spring.jdbc.validationQuery=
+#spring.datasource.url=jdbc:postgresql://localhost/cloud_native_batch
+#spring.datasource.username=postgres
+#spring.datasource.password=postgres
+#spring.datasource.platform=POSTGRESQL
+spring.output.ansi.enabled=DETECT
+message="Listing 4-24 Hello World"
+

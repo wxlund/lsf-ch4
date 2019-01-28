@@ -1,0 +1,56 @@
+---       
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  name: dev-postgres
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/spring_batch
+    username: 'postgres'
+    password: 'mysecretpassword'
+    platform: postgres
+    hikari:
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+  batch:
+      schema: /org/springframework/batch/core/schema-postgresql.sql
+      initialize-schema: always
+      job:
+        names: conditionalStepLogicJob 
+  profiles: 
+#    active: hello-world-job
+#    active: callable-tasklet-configuration
+#    active: method-invoking-tasklet-configuration
+#    active: system-command-job
+#    active: advanced-system-command-job
+#    active: chunk-job
+#    active: conditional-job
+#    active: flow-job 
+    active: job-job 
+    
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+        jdbc:
+          lob.non_contextual_creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: wxlund@gmail.com
+    password: DUchtdorf02!
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+      
+          
+org:
+  apache:
+    activemq:
+      SERIALIZABLE_PACKAGES=*
+      
