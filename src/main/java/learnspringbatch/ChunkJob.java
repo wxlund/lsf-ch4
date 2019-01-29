@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import javax.batch.api.chunk.ItemWriter;
-
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.support.ListItemReader;
 import org.springframework.batch.repeat.CompletionPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +74,7 @@ public class ChunkJob {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(ChunkJob.class, args);
+		String [] realArgs = new String[] {"--spring.profiles.active=chunk-job"};
+		SpringApplication.run(ChunkJob.class, realArgs);
 	}
 }

@@ -1,9 +1,7 @@
 package learnspringbatch;
 
-import javax.annotation.Resource;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepScope;
@@ -19,7 +17,6 @@ import org.springframework.batch.repeat.policy.SimpleCompletionPolicy;
 import org.springframework.batch.repeat.policy.TimeoutTerminationPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
 
 // Listing 4-29
@@ -60,10 +57,10 @@ class BatchConfigTimeoutWithCommitCount {
 	public CompletionPolicy completionPolicy() {
 		CompositeCompletionPolicy policy = new CompositeCompletionPolicy();
 
-		policy.setPolicies(
-			new TimeoutTerminationPolicy(3),
-			new SimpleCompletionPolicy(200)
-		);
+		policy.setPolicies(new CompletionPolicy[] {
+				new TimeoutTerminationPolicy(3),
+				new SimpleCompletionPolicy(200)
+		});
 
 		return policy;
 	}

@@ -1,8 +1,7 @@
 package learnspringbatch;
 
-import javax.batch.runtime.StepExecution;
-
 import org.springframework.batch.core.ExitStatus;
+import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.annotation.AfterStep;
 import org.springframework.batch.core.annotation.BeforeStep;
 

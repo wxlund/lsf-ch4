@@ -4,28 +4,35 @@ spring:
     allow-bean-definition-overriding: true
   name: dev-postgres
   datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/spring_batch
-    username: 'postgres'
-    password: 'mysecretpassword'
-    platform: postgres
-    hikari:
-      transaction-isolation: TRANSACTION_READ_COMMITTED
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/spring_batch
+#    username: 'postgres'
+#    password: 'mysecretpassword'
+#    platform: postgres
+#    hikari:
+#      transaction-isolation: TRANSACTION_READ_COMMITTED
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_batch
+    username: 'root'
+    password: 'p@ssw0rd'
+    initialization-mode: always
+    continue-on-error: true
+    platform: mysql
   batch:
-      schema: /org/springframework/batch/core/schema-postgresql.sql
+#      schema: /org/springframework/batch/core/schema-postgresql.sql
       initialize-schema: always
-      job:
-        names: conditionalStepLogicJob 
+#      job:
+#        names: conditionalStepLogicJob
   profiles: 
 #    active: hello-world-job
 #    active: callable-tasklet-configuration
 #    active: method-invoking-tasklet-configuration
 #    active: system-command-job
 #    active: advanced-system-command-job
-#    active: chunk-job
+    active: chunk-job
 #    active: conditional-job
 #    active: flow-job 
-    active: job-job 
+#    active: job-job
     
   jpa:
     show-sql: true
